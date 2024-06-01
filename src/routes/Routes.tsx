@@ -3,6 +3,7 @@ import {
   } from "react-router-dom";
   import App from "../App";
 import Dashboard from "@/pages/dashboard/Dashboard";
+import AddProject from "@/pages/dashboard/AddProject";
 
   
   
@@ -16,10 +17,10 @@ import Dashboard from "@/pages/dashboard/Dashboard";
               index: true,
               element: <Dashboard></Dashboard>
           },
-        //   {
-        //     path: "/login",
-        //     element: <Login></Login>,
-        //   },
+          {
+            path: "/add-project",
+            element: <AddProject/>
+          },
 
 
       ]

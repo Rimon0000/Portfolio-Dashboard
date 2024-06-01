@@ -10,7 +10,7 @@ const Sidebar = () => {
       </div>
       <nav className="flex flex-col gap-2 px-4 lg:px-5 py-1">
         <NavLink
-          to="/dashboard/supplies"
+          to="/"
           className={({ isActive }) =>
             cn(
               "p-2 bg-green-300 rounded-md transition-all flex gap-2 items-center",
@@ -21,10 +21,10 @@ const Sidebar = () => {
           }
         >
           <LayoutDashboard className="shrink-0"></LayoutDashboard>
-          <span className="truncate">All Supplies</span>
+          <span className="truncate">Dashboard</span>
         </NavLink>
         <NavLink
-          to="/dashboard/create-supply"
+          to="/add-project"
           className={({ isActive }) =>
             cn(
               "p-2 bg-green-300 rounded-md transition-all flex gap-2 items-center",
@@ -35,7 +35,7 @@ const Sidebar = () => {
           }
         >
           <LayoutDashboard className="shrink-0"></LayoutDashboard>
-          <span className="truncate">Add Supply</span>
+          <span className="truncate">Add Project</span>
         </NavLink>
         <NavLink
           to="/dashboard/create-testimonial"
