@@ -3,7 +3,8 @@ import {
   } from "react-router-dom";
   import App from "../App";
 import Dashboard from "@/pages/dashboard/Dashboard";
-import AddProject from "@/pages/dashboard/AddProject";
+import AddProject from "@/pages/projects/AddProject";
+import AllProject from "@/pages/projects/AllProject";
 
   
   
@@ -20,6 +21,10 @@ import AddProject from "@/pages/dashboard/AddProject";
           {
             path: "/add-project",
             element: <AddProject/>
+          },
+          {
+            path: "/all-projects",
+            element: <AllProject/>
           },
 
 

@@ -38,7 +38,7 @@ const Sidebar = () => {
           <span className="truncate">Add Project</span>
         </NavLink>
         <NavLink
-          to="/dashboard/create-testimonial"
+          to="/all-projects"
           className={({ isActive }) =>
             cn(
               "p-2 bg-green-300 rounded-md transition-all flex gap-2 items-center",
@@ -49,7 +49,7 @@ const Sidebar = () => {
           }
         >
           <LayoutDashboard className="shrink-0"></LayoutDashboard>
-          <span className="truncate">Add Testimonial</span>
+          <span className="truncate">All Projects</span>
         </NavLink>
       </nav>
     </aside>

@@ -10,24 +10,15 @@ const projectsApi = baseApi.injectEndpoints({
             }),
             invalidatesTags: ['projects'],
         }),
-        
-        // getSupplies: builder.query({
-        //     query: (suppliesInfo) =>({
-        //         url: "/api/v1/filter-supplies",
-        //         method: "GET",
-        //         body: suppliesInfo
-        //     }),
-        //     providesTags: ['supply'],
-        // }),
 
-        // getAllSupplies: builder.query({
-        //     query: (suppliesInfo) =>({
-        //         url: "/api/v1/supplies",
-        //         method: "GET",
-        //         body: suppliesInfo
-        //     }),
-        //     providesTags: ['supply'],
-        // }),
+        getAllProjects: builder.query({
+            query: (projectsInfo) =>({
+                url: "/api/projects",
+                method: "GET",
+                body: projectsInfo
+            }),
+            providesTags: ['projects'],
+        }),
 
         // GetSingleSupply: builder.query({
         //     query: (supplyId) =>({
@@ -46,14 +37,14 @@ const projectsApi = baseApi.injectEndpoints({
         //     invalidatesTags: ['supply'],
         // }),
 
-        // deleteSupply: builder.mutation({
-        //     query: (id) =>({
-        //         url: `/api/v1/supply/${id}`,
-        //         method: "DELETE",
-        //     }),
-        //     invalidatesTags: ['supply'],
-        // }),
+        deleteProject: builder.mutation({
+            query: (id) =>({
+                url: `/api/project/${id}`,
+                method: "DELETE",
+            }),
+            invalidatesTags: ['projects'],
+        }),
     })
 })
 
-export const {useAddProjectMutation } = projectsApi;
+export const {useAddProjectMutation, useGetAllProjectsQuery, useDeleteProjectMutation } = projectsApi;
