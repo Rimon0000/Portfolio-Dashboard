@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { useAppDispatch } from "@/redux/hook";
-import { Trash2 } from "lucide-react";
+import { FilePenLine, Trash2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2'
 import { useDeleteProjectMutation, useGetAllProjectsQuery } from "@/redux/features/projects/projectsApi";
@@ -65,7 +65,11 @@ const AllProject = () =>{
                         <Trash2/>
                       </Button>
                       <hr className="border-2 mx-2 h-7 bg-slate-800"></hr>                    
-                      {/* <UpdateSupplyModal item={item}></UpdateSupplyModal> */}
+                        <Link to={`/update-project/${item._id}`}>
+                        <Button className="hover:bg-slate-600 hover:text-white  px-2 py-2 rounded-md" variant="secondary">
+                          <FilePenLine></FilePenLine>
+                        </Button>
+                        </Link>
                       </TableCell>
                   </TableRow>
                 ))}

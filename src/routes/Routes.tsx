@@ -5,6 +5,7 @@ import {
 import Dashboard from "@/pages/dashboard/Dashboard";
 import AddProject from "@/pages/projects/AddProject";
 import AllProject from "@/pages/projects/AllProject";
+import UpdateProject from "@/pages/projects/UpdateProject";
 
   
   
@@ -25,6 +26,10 @@ import AllProject from "@/pages/projects/AllProject";
           {
             path: "/all-projects",
             element: <AllProject/>
+          },
+          {
+            path: "/update-project/:id",
+            element: <UpdateProject/>
           },
 
 
