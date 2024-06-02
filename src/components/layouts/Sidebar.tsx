@@ -1,8 +1,19 @@
 import { cn } from "@/lib/utils";
 import { LayoutDashboard } from "lucide-react";
 import { NavLink } from "react-router-dom";
+import { Button } from "../ui/button";
+import { logout, useCurrentUser } from "@/redux/features/auth/authSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/hook";
 
 const Sidebar = () => {
+  const currentUser = useAppSelector(useCurrentUser);
+  const dispatch = useAppDispatch()
+
+  //handle logout
+  const handleLogout = () =>{
+    dispatch(logout())
+  }
+
   return (
     <aside className="bg-slate-800 col-span-2 min-h-screen sticky">
       <div className="text-white text-center font-bold text-xl h-12 flex items-center px-4 lg:px-5 my-1">
@@ -10,6 +21,9 @@ const Sidebar = () => {
           <img className="w-[30px] h-[30px] rounded-full shrink-0" src="https://i.ibb.co/MG1QK6P/images.png" alt="" />
           <h1 className="uppercase truncate">RIMON</h1>
         </div>
+        <NavLink to={currentUser ? "/" : "/login"}>
+            <Button onClick={handleLogout}>{currentUser ? "Logout" : "Login"}</Button>
+          </NavLink>
       </div>
       <hr />
       <nav className="flex flex-col gap-2 px-4 lg:px-5 py-1 mt-5">

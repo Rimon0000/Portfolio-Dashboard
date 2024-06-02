@@ -9,14 +9,15 @@ import UpdateProject from "@/pages/projects/UpdateProject";
 import AddBlog from "@/pages/blogs/AddBlog";
 import AllBlog from "@/pages/blogs/AllBlog";
 import UpdateBlog from "@/pages/blogs/UpdateBlog";
+import Login from "@/pages/login/Login";
+import PrivateRoute from "./PrivateRoute";
+import ErrorPage from "@/pages/errorPage/ErrorPage";
 
-  
-  
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <App></App>,
-    //   errorElement: <ErrorPage></ErrorPage>,
+      element: <PrivateRoute><App></App></PrivateRoute>,
+      errorElement: <ErrorPage></ErrorPage>,
       children: [
           {
               index: true,
@@ -46,9 +47,12 @@ import UpdateBlog from "@/pages/blogs/UpdateBlog";
             path: "/update-blog/:id",
             element: <UpdateBlog/>
           },
-
-
+          
       ]
+    },
+    {
+      path: "/login",
+      element: <Login/>
     },
   ]);
   
