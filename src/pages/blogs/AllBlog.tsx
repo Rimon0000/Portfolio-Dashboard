@@ -4,14 +4,14 @@ import { useAppDispatch } from "@/redux/hook";
 import { FilePenLine, Trash2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2'
-import { useDeleteProjectMutation, useGetAllProjectsQuery } from "@/redux/features/projects/projectsApi";
-import { removeProject } from "@/redux/features/projects/projectsSlice";
-import { TProjectItem } from "@/type/projects/project";
+import { useDeleteBlogMutation, useGetAllBlogsQuery } from "@/redux/features/blogs/blogsApi";
+import { TBlogItem } from "@/type/blog/blog";
+import { removeBlog } from "@/redux/features/blogs/blogsSlice";
 
-const AllProject = () =>{
-  const { data } = useGetAllProjectsQuery(undefined);
+const AllBlog = () =>{
+  const { data } = useGetAllBlogsQuery(undefined);
   const dispatch = useAppDispatch()
-  const [deleteProject] = useDeleteProjectMutation();
+  const [deleteBlog] = useDeleteBlogMutation();
 
 
   //handle delete
@@ -26,8 +26,8 @@ const AllProject = () =>{
       confirmButtonText: "Yes, delete it!"
     }).then( async(result) => {
       if (result.isConfirmed) {
-        await deleteProject(id).unwrap();
-        dispatch(removeProject(id));
+        await deleteBlog(id).unwrap();
+        dispatch(removeBlog(id));
         Swal.fire({
           title: "Deleted!",
           text: "Your file has been deleted.",
@@ -39,13 +39,13 @@ const AllProject = () =>{
 
     return (
         <div>
-            <h1 className="text-center text-xl font-bold my-5">All Projects</h1>
+            <h1 className="text-center text-xl font-bold my-5">All Blogs</h1>
             <div className=" my-3 mr-5 flex items-end justify-end">
-              <Link to="/add-project"><Button>Add New Projects</Button></Link>
+              <Link to="/add-blog"><Button>Add New Blog</Button></Link>
             </div>
 
             <Table className="font-semibold">
-              <TableCaption>A list of my projects.</TableCaption>
+              <TableCaption>A list of my blogs!</TableCaption>
               <TableHeader>
                 <TableRow>
                   <TableHead className="w-[100px]">Image</TableHead>
@@ -55,17 +55,17 @@ const AllProject = () =>{
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {data?.data?.map((item : TProjectItem) => (
+                {data?.data?.map((item : TBlogItem) => (
                   <TableRow key={item._id}>
                     <TableCell className="font-medium"><img src={item.image} alt="" /></TableCell>
                     <TableCell>{item.title}</TableCell>
-                    <TableCell><a href={item.live} target="_blank">Live Site</a></TableCell>
+                    <TableCell>{item.category}</TableCell>
                     <TableCell className="text-right flex items-center justify-end place-content-center mt-7"> 
                       <Button onClick={() => handleDelete(item._id)} variant="destructive" className=" hover:bg-slate-700 px-2 py-2 rounded-md">
                         <Trash2/>
                       </Button>
                       <hr className="border-2 mx-2 h-7 bg-slate-800"></hr>                    
-                        <Link to={`/update-project/${item._id}`}>
+                        <Link to={`/update-blog/${item._id}`}>
                         <Button className="hover:bg-slate-600 hover:text-white  px-2 py-2 rounded-md" variant="secondary">
                           <FilePenLine></FilePenLine>
                         </Button>
@@ -87,4 +87,4 @@ const AllProject = () =>{
     )
 }
 
-export default AllProject;
+export default AllBlog;

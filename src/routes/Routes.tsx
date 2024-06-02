@@ -6,6 +6,9 @@ import Dashboard from "@/pages/dashboard/Dashboard";
 import AddProject from "@/pages/projects/AddProject";
 import AllProject from "@/pages/projects/AllProject";
 import UpdateProject from "@/pages/projects/UpdateProject";
+import AddBlog from "@/pages/blogs/AddBlog";
+import AllBlog from "@/pages/blogs/AllBlog";
+import UpdateBlog from "@/pages/blogs/UpdateBlog";
 
   
   
@@ -30,6 +33,18 @@ import UpdateProject from "@/pages/projects/UpdateProject";
           {
             path: "/update-project/:id",
             element: <UpdateProject/>
+          },
+          {
+            path: "/add-blog",
+            element: <AddBlog/>
+          },
+          {
+            path: "/all-blogs",
+            element: <AllBlog/>
+          },
+          {
+            path: "/update-blog/:id",
+            element: <UpdateBlog/>
           },
 
 
