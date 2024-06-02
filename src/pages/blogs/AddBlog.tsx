@@ -1,3 +1,4 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { Button } from "@/components/ui/button";
@@ -10,13 +11,24 @@ import { CalendarIcon } from "@radix-ui/react-icons"
 import { format } from "date-fns"
  
 import { cn } from "@/lib/utils"
-import React from "react";
 import { useAddBlogMutation } from "@/redux/features/blogs/blogsApi";
+import JoditEditor from 'jodit-react';
+import React, { useState, useRef } from 'react';
 
 const AddBlog = () => {
+    const editor = useRef(null)
+	  const [content, setContent] = useState('')
+
+    // const config = {
+    //   placeholder : "Start typing..."
+    // }
+
     const [addBlog] = useAddBlogMutation()
     const queryClient = useQueryClient();
     const [date, setDate] = React.useState<Date>()
+
+    
+
 
 
     //handle new project
@@ -27,7 +39,7 @@ const AddBlog = () => {
     const image = form.image.value;
     const title = form.title.value;
     const category = form.category.value;
-    const description = form.description.value;
+    const description = content;
 
     const newBlog = {
       image,
@@ -101,10 +113,17 @@ const AddBlog = () => {
                 </div>
                 <div className="mb-2">
                     <Label htmlFor="Description" className="flex text-left py-2 text-base">Description</Label>
-                    <textarea className="shadow  border rounded w-full py-2 px-3 text-gray-700 h-[120px]"
+                    {/* <textarea className="shadow  border rounded w-full py-2 px-3 text-gray-700 h-[120px]"
                       name="description"
                       placeholder="Description"
-                      required/>
+                      required/> */}
+                    <JoditEditor
+		                	ref={editor}
+		                	value={content}
+		                	// config={config}
+		                	onBlur={newContent => setContent(newContent)}
+		                	onChange={newContent => setContent(newContent)}
+		                />
                 </div>
 
                 <div className="pb-3 mt-3">
