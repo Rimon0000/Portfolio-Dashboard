@@ -11,3 +11,10 @@ export type TProjectItem = {
     description: string
     features: string
   }
+
+  export type TSkillItem = {
+    data: any;
+    _id: string;
+    icon: string;
+    title: string;
+  }

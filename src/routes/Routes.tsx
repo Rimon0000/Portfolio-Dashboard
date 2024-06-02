@@ -12,6 +12,9 @@ import UpdateBlog from "@/pages/blogs/UpdateBlog";
 import Login from "@/pages/login/Login";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "@/pages/errorPage/ErrorPage";
+import AddSkill from "@/pages/skills/AddSkill";
+import AllSkills from "@/pages/skills/AllSkills";
+import UpdateSkill from "@/pages/skills/UpdateSkill";
 
   const router = createBrowserRouter([
     {
@@ -46,6 +49,18 @@ import ErrorPage from "@/pages/errorPage/ErrorPage";
           {
             path: "/update-blog/:id",
             element: <UpdateBlog/>
+          },
+          {
+            path: "/add-skill",
+            element: <AddSkill/>
+          },
+          {
+            path: "/all-skills",
+            element: <AllSkills/>
+          },
+          {
+            path: "/update-skill/:id",
+            element: <UpdateSkill/>
           },
           
       ]

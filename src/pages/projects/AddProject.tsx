@@ -32,7 +32,7 @@ const AddProject = () => {
       server,
       description,
       technology,
-      features
+      features: [features]
     }
     console.log(newProject);
 
