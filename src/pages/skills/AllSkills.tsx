@@ -1,10 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { useAppDispatch } from "@/redux/hook";
-import { FilePenLine, Trash2 } from "lucide-react";
+import { Trash2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2'
-import { TBlogItem } from "@/type/blog/blog";
 import { useDeleteSkillMutation, useGetAllSkillsQuery } from "@/redux/features/skills/skillsApi";
 import { removeSkill } from "@/redux/features/skills/skillsSlice";
 import { TSkillItem } from "@/type/projects/project";
