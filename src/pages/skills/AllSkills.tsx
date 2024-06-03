@@ -52,14 +52,16 @@ const AllSkills = () =>{
                 <TableRow>
                   <TableHead>Image</TableHead>
                   <TableHead>Title</TableHead>
+                  <TableHead>Progress</TableHead>
                   <TableHead className="text-right">Action</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {data?.data?.map((item : TSkillItem) => (
                   <TableRow key={item._id}>
-                    <TableCell className="font-medium"><img src={item.icon} alt="" /></TableCell>
+                    <TableCell className="font-medium"><img className="w-[50px] h-[50px]" src={item.icon} alt="" /></TableCell>
                     <TableCell>{item.title}</TableCell>
+                    <TableCell>{item.progress}</TableCell>
                     <TableCell className="text-right flex items-center justify-end place-content-center mt-7"> 
                       <Button onClick={() => handleDelete(item._id)} variant="destructive" className=" hover:bg-slate-700 px-2 py-2 rounded-md">
                         <Trash2/>

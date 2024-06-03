@@ -17,4 +17,5 @@ export type TProjectItem = {
     _id: string;
     icon: string;
     title: string;
+    progress: number;
   }

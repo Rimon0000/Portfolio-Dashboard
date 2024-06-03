@@ -15,7 +15,7 @@ const UpdateProject = () =>{
   const queryClient = useQueryClient();
   const navigate = useNavigate();
 
-    const {_id, image, title, live, client, server, description, technology, features} = data?.data
+    const {_id, image, title, live, client, server, description, technology, features} = data?.data || {}
     
     const [updateProject] = useUpdateProjectMutation()
 

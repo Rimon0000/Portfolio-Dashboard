@@ -18,10 +18,12 @@ const AddSkill = () => {
     const form = e.target;
     const icon = form.icon.value;
     const title = form.title.value;
+    const progress = form.progress.value;
 
     const newSkill = {
       icon,
       title,
+      progress
     }
 
     addSkill(newSkill)
@@ -32,7 +34,7 @@ const AddSkill = () => {
 
   return (
     <div className="text-center my-3">
-        <h1 className="text-3xl font-semibold mb-5"> Add a New Blog</h1>
+        <h1 className="text-3xl font-semibold mb-5"> Add a New Skill</h1>
         <div className="w-full flex justify-center items-center">
             <form onSubmit={handleAddNewSkill} className="bg-slate-100 shadow-md rounded px-8 pt-6 w-full lg:w-2/5"> 
                 <div className="mb-2 w-full">
@@ -49,6 +51,14 @@ const AddSkill = () => {
                       name="title"
                       type="text"
                       placeholder="Title"
+                      required/>
+                </div>
+                <div className="mb-2 w-full">
+                    <Label htmlFor="Progress" className="flex text-left py-2 text-base">Progress</Label>
+                    <input className="shadow  border rounded w-full py-2 px-3 text-gray-700"
+                      name="progress"
+                      type="text"
+                      placeholder="Progress"
                       required/>
                 </div>
                 <div className="pb-3 mt-3">

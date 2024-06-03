@@ -12,7 +12,7 @@ import { useUpdateSkillMutation } from "@/redux/features/skills/skillsApi"
 
 
 const UpdateSkill = ({item}: {item: TSkillItem}) =>{
-    const {_id, icon, title} = item
+    const {_id, icon, title, progress} = item
     
     const [updateSkill] = useUpdateSkillMutation()
 
@@ -23,12 +23,14 @@ const UpdateSkill = ({item}: {item: TSkillItem}) =>{
     const form = e.target 
     const icon = form.icon.value
     const title = form.title.value
+    const progress = form.progress.value
 
     const options = {
         id: _id,
         data: {
             icon,
-            title
+            title,
+            progress
         }
     };
     
@@ -45,9 +47,9 @@ const UpdateSkill = ({item}: {item: TSkillItem}) =>{
           </DialogTrigger>
           <DialogContent className="sm:max-w-[425px]">
             <DialogHeader>
-              <DialogTitle>Update Supply</DialogTitle>
+              <DialogTitle>Update Skill</DialogTitle>
               <DialogDescription>
-                Please donate to help us reach our goal.
+                Change your skill if you want.
               </DialogDescription>
             </DialogHeader>
             <form onSubmit={handleUpdate}>
@@ -70,6 +72,17 @@ const UpdateSkill = ({item}: {item: TSkillItem}) =>{
                     <Input 
                       name="title"
                       defaultValue={title}
+                      className="col-span-3"
+                      required
+                    />
+                  </div>
+                  <div className="grid grid-cols-4 items-center gap-4">
+                    <Label htmlFor="Progress" className="text-right">
+                      Progress
+                    </Label>
+                    <Input 
+                      name="progress"
+                      defaultValue={progress}
                       className="col-span-3"
                       required
                     />
